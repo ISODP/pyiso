@@ -336,6 +336,7 @@ class NYISOClient(BaseClient):
         node_id = self.options['node_id']
         if node_id:
             reg = re.compile('|'.join(node_id))
-            df = df.ix[df['node_id'].str.contains(reg)]
+            # df = df.ix[df['node_id'].str.contains(reg)]
+            df = df.loc[df['node_id'].str.contains(reg)]
         # return
         return df
